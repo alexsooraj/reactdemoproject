@@ -1,55 +1,55 @@
 import React, { useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { loadCars, getAllcars } from "../store/cars";
-// import Chart from "react-apexcharts";
+import CarsActions from "../../flux/actions/cars/CarsActions";
+import Chart from "react-apexcharts";
 
-function DashboardCharts() {
-    // const getHpPieData = (carsList) => {
-    //     return {
-    //         options: {
-    //             labels: carsList.map(car => car.name),
-    //             legend: { show: false },
-    //             title: { text: 'Performance Comparison (HP)' }
-    //         },
-    //         series: carsList.map(car => car.Horsepower)
-    //     }
-    // }
-    // const getDisplacementChartData = (carsList) => {
-    //     return {
-    //         options: {
-    //             xaxis: { categories: carsList.map(car => car.name) },
-    //             legend: { show: false },
-    //             title: { text: 'Displacement' }
-    //         },
-    //         series: [
-    //             {
-    //                 name: 'Displacement',
-    //                 data: carsList.map(car => car.Displacement)
-    //             }
-    //         ]
-    //     }
-    // }
-    // const dispatch = useDispatch();
-    // const cars = useSelector(getAllcars);
+function DashboardCharts(props) {
+    console.log('DashboardCharts props', props);
+    useEffect(() => {
+        CarsActions.loadCars();
+    }, []);
 
-    // console.log('cars', cars);
+    const getHpPieData = (carsList) => {
+        return {
+            options: {
+                labels: carsList.map(car => car.name),
+                legend: { show: false },
+                title: { text: 'Performance Comparison (HP)' }
+            },
+            series: carsList.map(car => car.horsepower)
+        }
+    }
+    const getDisplacementChartData = (carsList) => {
+        return {
+            options: {
+                xaxis: { categories: carsList.map(car => car.name) },
+                legend: { show: false },
+                title: { text: 'Displacement' }
+            },
+            series: [
+                {
+                    name: 'Displacement',
+                    data: carsList.map(car => car.displacement)
+                }
+            ]
+        }
+    }
 
-    // const hpPie = getHpPieData(cars);
-    // const disBar = getDisplacementChartData(cars);
+    const cars = props.carsList;
 
-    // useEffect(() => {
-    //     dispatch(loadCars());
-    // }, []);
+    console.log('cars', cars);
+
+    const hpPie = getHpPieData(cars);
+    const disBar = getDisplacementChartData(cars);
+
     return <div>
-        Charts here
-        {/* <div className="row">
+        <div className="row">
             <div className="col-sm-5">
                 <Chart options={hpPie.options} series={hpPie.series} type="pie" />
             </div>
             <div className="col-sm-7">
                 <Chart options={disBar.options} series={disBar.series} type="bar" />
             </div>
-        </div> */}
+        </div>
     </div>
 }
 

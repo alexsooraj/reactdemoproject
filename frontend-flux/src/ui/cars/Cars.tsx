@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Cars.css";
 import CarsList from "../cars-list/CarsList";
 
-function Cars() {
+function Cars(props) {
   return (
-      <CarsList />
+    <div>
+      <CarsList {...props} />
+    </div>
   );
 }
 

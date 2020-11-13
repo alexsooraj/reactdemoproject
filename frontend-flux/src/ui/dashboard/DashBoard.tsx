@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
+import CarsActions from "../../flux/actions/cars/CarsActions";
 import DashboardCharts from "../charts/DashboardCharts";
 
-function DashBoard() {
+function DashBoard(props) {
   return (
-      <DashboardCharts />
+    <DashboardCharts carsList={props.carsState.carsList} />
   );
 }
 
