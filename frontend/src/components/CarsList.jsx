@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { loadCars, getAllcars } from "../store/cars";
+import { loadCars, getAllcars, getCarsByBrand } from "../store/cars";
 import { loadbrands, getAllbrands } from "../store/brands";
 import { connect } from "react-redux";
 import { paginate } from "../utils/paginate";
@@ -50,7 +50,6 @@ class CarsList extends Component {
   };
 
   render() {
-    console.log(this.props);
     const { length: count } = this.props.cars;
     const { pageSize, currentPage, sortColumn } = this.state;
     const allBrands = [{ _id: "", name: "All Brands" }, ...this.props.brands];
@@ -87,7 +86,7 @@ class CarsList extends Component {
 
 const mapStateToProps = (state) => ({
   cars: getAllcars(state),
-  brands: getAllbrands(state),
+  brands: getAllbrands(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
