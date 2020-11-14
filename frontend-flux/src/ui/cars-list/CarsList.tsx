@@ -2,6 +2,7 @@ import React, { Component, useEffect } from "react";
 import CarsActions from "../../flux/actions/cars/CarsActions";
 import { paginate } from "../../utils/Paginate";
 import _ from "lodash";
+import { Car } from "../../flux/models/Car";
 
 class CarsList extends Component {
     state = {
@@ -46,8 +47,12 @@ class CarsList extends Component {
 
 
     render() {
+        const props = this.props as any;
+        const cars: Car[] = props.carsState.carsList;
         return <div>
-            Cars List
+            <ul>
+                {cars.map(car => <li>{car.name}</li>)}
+            </ul>
         </div>;
     }
 }

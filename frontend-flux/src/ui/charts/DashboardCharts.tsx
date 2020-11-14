@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import CarsActions from "../../flux/actions/cars/CarsActions";
 import Chart from "react-apexcharts";
+import './DashboardCharts.css';
 
 function DashboardCharts(props) {
     console.log('DashboardCharts props', props);
@@ -41,7 +42,7 @@ function DashboardCharts(props) {
     const hpPie = getHpPieData(cars);
     const disBar = getDisplacementChartData(cars);
 
-    return <div>
+    return <div className="charts-container">
         <div className="row">
             <div className="col-sm-5">
                 <Chart options={hpPie.options} series={hpPie.series} type="pie" />
