@@ -1,15 +1,15 @@
 import "bootstrap/dist/css/bootstrap.css";
 
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "../navbar/Navbar";
 import { Route, Redirect, Switch } from "react-router-dom";
-import Cars from "./Cars";
-import CarDetails from "./CarDetails";
-import NotFound from "./notFound";
-import DashBoard from "./DashBoard";
-import LoginForm from "./loginForm";
-import RegisterForm from "./registerForm";
-import configureStore from "../store/configureStore";
+import Cars from "../cars/Cars";
+import CarDetails from "../cars/CarDetails";
+import NotFound from "../notfound/notFound";
+import DashBoard from "../dashboard/DashBoard";
+import LoginForm from "../user/loginForm";
+import RegisterForm from "../user/registerForm";
+import configureStore from "../../store/reduxstore/configureStore";
 import { Provider } from "react-redux";
 
 const store = configureStore();

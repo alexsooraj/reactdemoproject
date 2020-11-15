@@ -1,11 +1,9 @@
 import React from "react";
-import "./Cars.css";
+import "../cars/Cars.css";
 import DashboardCharts from "./DashboardCharts";
 
 function DashBoard() {
-  return (
-      <DashboardCharts />
-  );
+  return <DashboardCharts />;
 }
 
 export default DashBoard;

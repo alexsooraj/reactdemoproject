@@ -1,5 +1,5 @@
 import axios from "axios";
-import * as actions from "../api";
+import * as actions from "../apistore/api";
 
 const api = ({ dispatch }) => (next) => async (action) => {
   if (action.type !== actions.apiCallBegan.type) return next(action);
@@ -18,6 +18,9 @@ const api = ({ dispatch }) => (next) => async (action) => {
       data,
     });
     // General
+
+    console.log(url);
+    console.log(response.data);
     dispatch(actions.apiCallSuccess(response.data));
     // Specific
     if (onSuccess) dispatch({ type: onSuccess, payload: response.data });

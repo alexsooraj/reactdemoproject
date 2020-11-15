@@ -19,7 +19,7 @@ function Navbar(props) {
               Cars
             </NavLink>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <NavLink className="nav-link" to="/login">
               Login
             </NavLink>
@@ -28,7 +28,7 @@ function Navbar(props) {
             <NavLink className="nav-link" to="/register">
               Register
             </NavLink>
-          </li>
+          </li> */}
         </ul>
       </div>
     </nav>
