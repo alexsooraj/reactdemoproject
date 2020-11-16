@@ -15,15 +15,15 @@ class Carstable extends Component {
       label: "Brand",
     },
     {
-      path: "Horsepower",
+      path: "horsepower",
       label: "Horsepower",
     },
     {
-      path: "Year",
+      path: "year",
       label: "Year",
     },
     {
-      path: "Origin",
+      path: "origin",
       label: "Origin",
     },
   ];

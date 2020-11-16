@@ -11,7 +11,7 @@ function DashboardCharts() {
         legend: { show: false },
         title: { text: "Performance Comparison (HP)" },
       },
-      series: carsList.map((car) => car.Horsepower),
+      series: carsList.map((car) => car.horsepower),
     };
   };
   const getDisplacementChartData = (carsList) => {
@@ -24,7 +24,7 @@ function DashboardCharts() {
       series: [
         {
           name: "Displacement",
-          data: carsList.map((car) => car.Displacement),
+          data: carsList.map((car) => car.displacement),
         },
       ],
     };
@@ -41,10 +41,10 @@ function DashboardCharts() {
   return (
     <div>
       <div className="row">
-        <div className="col-sm-5">
+        <div className="col-sm-8">
           <Chart options={hpPie.options} series={hpPie.series} type="pie" />
         </div>
-        <div className="col-sm-7">
+        <div className="col-sm-9">
           <Chart options={disBar.options} series={disBar.series} type="bar" />
         </div>
       </div>

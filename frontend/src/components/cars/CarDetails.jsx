@@ -27,12 +27,12 @@ class CarDetails extends Component {
           <input
             className="form-control"
             id="horsepower"
-            value={car.Horsepower}
+            value={car.horsepower}
           />
         </div>
         <div className="form-group">
           <label htmlFor="origin">Origin</label>
-          <input className="form-control" id="origin" value={car.Origin} />
+          <input className="form-control" id="origin" value={car.origin} />
         </div>
       </form>
     );
