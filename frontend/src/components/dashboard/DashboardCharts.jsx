@@ -3,13 +3,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadCars, getAllcars } from "../../store/allcarstore/cars";
 import Chart from "react-apexcharts";
 
-function DashboardCharts() {
+function DashboardCharts(props) {
   const getHpPieData = (carsList) => {
     return {
       options: {
         labels: carsList.map((car) => car.name),
         legend: { show: false },
         title: { text: "Performance Comparison (HP)" },
+        chart: {
+          events: {
+            dataPointSelection: function (event, chartContext, config) {
+              props.history.push("/cars/" + config.selectedDataPoints[0]);
+            },
+          },
+        },
       },
       series: carsList.map((car) => car.horsepower),
     };
@@ -20,6 +27,13 @@ function DashboardCharts() {
         xaxis: { categories: carsList.map((car) => car.name) },
         legend: { show: false },
         title: { text: "Displacement" },
+        chart: {
+          events: {
+            dataPointSelection: function (event, chartContext, config) {
+              props.history.push("/cars/" + config.selectedDataPoints[0]);
+            },
+          },
+        },
       },
       series: [
         {
@@ -36,15 +50,15 @@ function DashboardCharts() {
   const disBar = getDisplacementChartData(cars);
 
   useEffect(() => {
-    dispatch(loadCars());
+    dispatch(loadCars(disBar));
   }, []);
   return (
     <div>
       <div className="row">
-        <div className="col-sm-8">
+        <div className="col-sm-5">
           <Chart options={hpPie.options} series={hpPie.series} type="pie" />
         </div>
-        <div className="col-sm-9">
+        <div className="col-sm-7">
           <Chart options={disBar.options} series={disBar.series} type="bar" />
         </div>
       </div>
