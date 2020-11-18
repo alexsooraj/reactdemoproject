@@ -1,9 +1,9 @@
 import React from "react";
 import "../cars/Cars.css";
-import DashboardCharts from "./DashboardCharts";
+import DashboardDCharts from "./DashboardDCharts";
 
 function DashBoard(props) {
-  return <DashboardCharts {...props} />;
+  return <DashboardDCharts {...props} />;
 }
 
 export default DashBoard;
